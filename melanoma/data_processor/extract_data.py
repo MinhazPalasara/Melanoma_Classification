@@ -6,6 +6,7 @@ from skimage import io
 import matplotlib.pyplot as plt
 import numpy as np
 from skimage import img_as_ubyte
+import cv2
 
 # storing a .h5 file an images(.h5 file can have single or multiple layers)
 class ExtractImage:
@@ -22,10 +23,12 @@ class ExtractImage:
             data_file = h5py.File(data_path+"/"+file,'r')
             data = data_file['data']
 
+            # os.makedirs(output_path+"/"+'.'.join(file.split('.')[0:-1]))
+
             for i in range(0, data.shape[1]):
                 layer = data[0, i, :]
-                io.imsave(output_path+"/"+'.'.join(file.split('.')[0:-1])+"-"+str(i)+self.image_extension,
-                          img_as_ubyte(layer/255)) # printing in gray scale
+                cv2.imwrite(output_path+"/"+'.'.join(file.split('.')[0:-1])+"-"+str(i)+self.image_extension,
+                          layer) # printing in gray scale
 
             data_file.close()
 

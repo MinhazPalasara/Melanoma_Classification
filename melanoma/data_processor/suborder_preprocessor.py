@@ -45,10 +45,15 @@ class ProcessData:
         self.rows = rows
         self.cols = cols
 
-    def appendData(self, data_path, output_path):
 
-        if not os.path.exists(output_path):
-            os.makedirs(output_path)
+    def appendData(self, data_path, output_path):
+     """
+     :param data_path: data file paths, .h5py
+     :param output_path:
+     :return: processed data in the output_path
+     """
+     if not os.path.exists(output_path):
+        os.makedirs(output_path)
 
         files = os.listdir(data_path)
         print len(files)

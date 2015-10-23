@@ -8,8 +8,8 @@ from melanoma.data_processor.suborder_preprocessor import GenerateData
 # ids of layers to be packaged in suborder
 suborder = [1, 2, 3, 4, 5, 6, 7]
 
-data_path = "path/to/complete/data"
-output_path = "/path/to/destination/suborder"
+data_path = "/home/minhazpalasara/segmented_image/segmented_all_images/"
+output_path = "/home/minhazpalasara/segmented_image/segmented_all_images/"
 
 # Four different data pre-processing operations are supported
 
@@ -28,8 +28,8 @@ output_path = "/path/to/destination/suborder"
 # extract.extract_suborder(data_path=data_path, output_path=output_path, suborder_list=suborder)
 
 # .h5 file to .jpeg files
-# extract = ExtractImage()
-# extract.extractImage(data_path=data_path, output_path=output_path)
+extract = ExtractImage()
+extract.extractImage(data_path=data_path, output_path=output_path)
 
 # Data Augmentation
 # extract = GenerateData()
